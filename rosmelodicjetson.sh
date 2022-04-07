@@ -30,9 +30,9 @@ esac
 
 usage ()
 {
-    echo "Usage: ./ROSbyJETSON.sh [[-p package] | [-h]]"
+    echo "Usage: ./rosmelodicjetson.sh [[-p package] | [-h]]"
     echo "Install ROS Melodic"
-    echo "Installs ros-melodic-ros-base as default base package; Use -p to override"
+    echo "Instala ros-melodic-ros-base como paquete base predeterminado; Use -p para anular"
     echo "-p | --package <packagename>  ROS package to install"
     echo "                              Multiple usage allowed"
     echo "                              Must include one of the following:"
@@ -45,9 +45,9 @@ usage ()
 shouldInstallPackages ()
 {
     tput setaf 1
-    echo "Your package list did not include a recommended base package"
+    echo "Su lista de paquetes no incluía un paquete base recomendado"
     tput sgr0 
-    echo "Please include one of the following:"
+    echo "Por favor incluya uno de los siguientes:"
     echo "   ros-melodic-ros-base"
     echo "   ros-melodic-desktop"
     echo "   ros-melodic-desktop-full"
@@ -70,13 +70,13 @@ while [ "$1" != "" ]; do
     esac
     shift
 done
-# Check to see if other paquetes were specified
-# If not, set the default base package
+# Verifique si se especificaron otros paquetes
+# De lo contrario, configure el paquete base predeterminado
 if [ ${#paquetes[@]}  -eq 0 ] ; then
  paquetes+="ros-melodic-ros-base"
 fi
-echo "Paquetes to install: "${paquetes[@]}
-# Check to see if we have a ROS base kinda thingie
+echo "Paquetes a instalar: "${paquetes[@]}
+# Comprueba si tenemos una especie de base ROS.
 hasBasePackage=false
 for paquete in "${paquetes[@]}"; do
   if [[ $package == "ros-melodic-ros-base" ]]; then
@@ -108,10 +108,10 @@ echo "actualizando apt list"
 tput sgr0
 sudo apt update
 
-# Setup sources.lst
+# Configuracion sources.lst
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
-# Setup keys
+# Configuracion keys
 sudo apt install curl 
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
