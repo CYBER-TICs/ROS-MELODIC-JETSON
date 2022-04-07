@@ -206,4 +206,5 @@ tput setaf 2
 
 echo "Installation complete!"
 echo "Please setup your Catkin Workspace and ~/.bashrc file"
+echo"calamardo tecnologico listo"
 tput sgr0
