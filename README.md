@@ -7,6 +7,7 @@ Los paquetes de Ubuntu están diseñados para las siguientes distribuciones y ar
 distribución  
 
 artful = amdd64 
+
 Bionic = amd64 arm64 armhf     
 
 Si necesita instalar desde la fuente ( no recomendado
